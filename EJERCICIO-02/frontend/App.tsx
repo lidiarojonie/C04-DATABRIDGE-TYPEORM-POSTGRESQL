@@ -12,7 +12,7 @@ type Pelicula = {
   favorita: boolean;
 };
 
-const API_URL = 'http://192.168.1.46:3000';
+const API_URL = 'http://TU_IP_LOCAL:3000';
 
 export default function App() {
   const [peliculas, setPeliculas] = useState<Pelicula[]>([]);
