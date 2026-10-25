@@ -34,7 +34,9 @@ export default function App() {
             <Text style={styles.movie}>{item.titulo}</Text>
             <Text>{item.genero} · {item.anio}</Text>
             <Text>⭐ {Number(item.puntuacion).toFixed(1)}</Text>
-            <Text>{item.favorita ? '💖 Favorita' : ''}</Text>
+            <Text>
+              {item.favorita ? '♥ Favorita' : '♡ No favorita'}
+            </Text>
           </View>
         )}
       />
