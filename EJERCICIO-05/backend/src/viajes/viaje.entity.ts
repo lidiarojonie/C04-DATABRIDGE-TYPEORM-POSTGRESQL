@@ -4,6 +4,6 @@ export class Viaje {
  @PrimaryGeneratedColumn() id:number;
  @Column() destino:string;
  @Column() pais:string;
- @Column() fecha:string;
+ @Column({ type: 'date' }) fecha: string;
  @Column() estado:string;
 }
