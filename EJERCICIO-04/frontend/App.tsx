@@ -18,11 +18,13 @@ export default function App() {
   const [ciudad, setCiudad] = useState('');
   const [precioMedio, setPrecioMedio] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [puntuacion, setPuntuacion] = useState('9');
 
   async function guardar() {
-    const precio = Number(precioMedio.replace(',', '.'));
-    if (!precioMedio.trim() || !Number.isFinite(precio) || precio < 0) {
-      setMensaje('Introduce un precio medio válido');
+    const nota = Number(puntuacion.replace(',', '.'));
+
+    if (!Number.isFinite(nota) || nota < 0 || nota > 10) {
+      setMensaje('Introduce una puntuación entre 0 y 10');
       return;
     }
 
@@ -34,9 +36,9 @@ export default function App() {
           nombre,
           tipo,
           ciudad,
-          puntuacion: 9,
-          precioMedio: precio,
-        }),
+          puntuacion: nota,
+          precioMedio: Number(precioMedio),
+      }),
       });
 
       setMensaje(
@@ -76,6 +78,13 @@ export default function App() {
           placeholder="Precio medio (€)"
           value={precioMedio}
           onChangeText={setPrecioMedio}
+          keyboardType="decimal-pad"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Puntuación (0–10)"
+          value={puntuacion}
+          onChangeText={setPuntuacion}
           keyboardType="decimal-pad"
         />
 
